@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android-Facedetection-scu.iml" filepath="$PROJECT_DIR$/Android-Facedetection-scu.iml" />
+      <module fileurl="file://C:\Users\SCU-KWC\Desktop\Github\Android-Facedetection-scu\Android-Facedetection-scu.iml" filepath="C:\Users\SCU-KWC\Desktop\Github\Android-Facedetection-scu\Android-Facedetection-scu.iml" />
       <module fileurl="file://C:\Users\kewenchi26\Desktop\work\Project\Android-Facedetection-scu\MyApplication.iml" filepath="C:\Users\kewenchi26\Desktop\work\Project\Android-Facedetection-scu\MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\SCU-KWC\Desktop\Github\Android-Facedetection-scu\app\app.iml" filepath="C:\Users\SCU-KWC\Desktop\Github\Android-Facedetection-scu\app\app.iml" />
     </modules>
   </component>
 </project>

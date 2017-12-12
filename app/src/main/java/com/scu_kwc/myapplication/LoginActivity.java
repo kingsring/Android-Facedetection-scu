@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Regist.setClass(LoginActivity.this, RegistActivity.class);
                 LoginActivity.this.startActivity(Regist);
             }
-        });
+        });//切换至注册ACT
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -101,9 +101,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 //attemptLogin();
+                //如果登陆成功，切换至mainACT
                 Intent Main = new Intent();
                 Main.setClass(LoginActivity.this, MainActivity.class);
                 LoginActivity.this.startActivity(Main);
+                finish();
             }
         });
 

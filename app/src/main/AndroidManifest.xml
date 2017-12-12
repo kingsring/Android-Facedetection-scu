@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".WelcomeActivity"
-            android:label="欢迎">
+            android:name=".LoginActivity"
+            android:finishOnTaskLaunch="true"
+            android:label="登陆">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,15 +27,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
-            android:label="登陆"></activity>
-        <activity
             android:name=".RegistActivity"
-            android:label="注册"></activity>
+            android:finishOnTaskLaunch="true"
+            android:label="注册" />
         <activity
             android:name=".MainActivity"
             android:label="课堂人脸签到系统"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PActivity"
+            android:label="拍照签到" />
+        <activity
+            android:name=".PersonManagerActivity"
+            android:label="个人中心" />
+        <activity
+            android:name=".InquireActivity"
+            android:label="查询" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="设置" />
     </application>
 
 </manifest>

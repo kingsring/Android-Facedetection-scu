@@ -1,5 +1,6 @@
 package com.scu_kwc.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -82,12 +83,21 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            Intent Pt = new Intent();
+            Pt.setClass(MainActivity.this, PActivity.class);
+            MainActivity.this.startActivity(Pt);
         } else if (id == R.id.nav_gallery) {
-
+            Intent Pm = new Intent();
+            Pm.setClass(MainActivity.this, PersonManagerActivity.class);
+            MainActivity.this.startActivity(Pm);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent Inquire = new Intent();
+            Inquire.setClass(MainActivity.this, InquireActivity.class);
+            MainActivity.this.startActivity(Inquire);
         } else if (id == R.id.nav_manage) {
-
+            Intent Setting = new Intent();
+            Setting.setClass(MainActivity.this, SettingsActivity.class);
+            MainActivity.this.startActivity(Setting);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
