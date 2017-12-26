@@ -13,9 +13,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.scu_kwc.myapplication.UserInfo;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private NavigationView nav;
+    private TextView username;//教师姓名
+    private TextView username2;//实际名称
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +52,20 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        nav = (NavigationView)findViewById(R.id.nav_view);
+        username = (TextView) (navigationView.getHeaderView(0).findViewById(R.id.username));
+        username2 = (TextView)(navigationView.getHeaderView(0).findViewById(R.id.username2));
+        String loginjson = UserInfo.g.getString("loginreData");
+        try{
+            JSONObject json = new JSONObject(loginjson);
+            Toast.makeText(MainActivity.this, "return:\n" + loginjson,
+                    Toast.LENGTH_LONG).show();
+            username.setText("teaName");
+            username2.setText("teaId");
+        }catch(JSONException e){
+            e.printStackTrace();
+        }
     }
 
     @Override

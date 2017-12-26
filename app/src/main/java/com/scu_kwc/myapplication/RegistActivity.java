@@ -3,7 +3,11 @@ package com.scu_kwc.myapplication;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -28,10 +32,13 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.scu_kwc.thread.RegistThread;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -61,6 +68,35 @@ public class RegistActivity extends AppCompatActivity implements LoaderCallbacks
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private String registJson;
+    private int stats;
+
+    private Handler handler = new Handler(Looper.getMainLooper()){
+        @Override
+        public void handleMessage(Message msg){
+            RegistActivity.this.registJson=msg.getData().getString("regist");
+            dealString(registJson);
+        };
+        public void dealString(String registJson){
+            try {
+                JSONObject json = new JSONObject(registJson);
+                stats = json.getInt("errNum");
+                if( stats == 200 ) {
+                    Intent Main = new Intent();
+                    Main.setClass(RegistActivity.this, MainActivity.class);
+                    RegistActivity.this.startActivity(Main);
+                    finish();
+                }
+                else{
+                    Toast.makeText(RegistActivity.this, "return:\n" + registJson,
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +122,7 @@ public class RegistActivity extends AppCompatActivity implements LoaderCallbacks
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                new  RegistThread(handler,mEmailView.getText().toString(),mPasswordView.getText().toString()).start();
             }
         });
 

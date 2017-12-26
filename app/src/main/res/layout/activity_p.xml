@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/AppTheme.BackColor"
     android:orientation="vertical"
-    tools:context="com.scu_kwc.myapplication.PActivity"
-    android:layout_margin="16dp">
+    tools:context="com.scu_kwc.myapplication.PActivity">
 
 
     <LinearLayout
@@ -36,10 +36,11 @@
             android:id="@+id/takePhotoButton1"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
 
+            android:layout_weight="1"
             android:text="签到"
+            android:layout_marginBottom="50dp"
             android:textStyle="bold" />
 
     </LinearLayout>
